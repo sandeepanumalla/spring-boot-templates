@@ -1,0 +1,19 @@
+spring:
+    application:
+        name: spring-mail-async
+    mail:
+        port: 587
+        test-connection: true
+        protocol: smtp
+        host: smtp.gmail.com
+        username: sandeepgfgjava@gmail.com
+        password: kxqbotnkgeyxlzbk
+        properties:
+           mail:
+              smtp:
+                  auth: true
+                  starttls:
+                      enable: true
+                      required: true
+server:
+    port: 8085

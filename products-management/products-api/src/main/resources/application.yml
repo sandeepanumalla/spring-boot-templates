@@ -1,0 +1,6 @@
+server:
+  port: 8084
+  tomcat:
+    threads:
+      max: 100
+

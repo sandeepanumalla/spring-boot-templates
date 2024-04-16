@@ -14,13 +14,13 @@ public class EmployeeService {
 
     @PostConstruct
     public void loadTheUsers() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 11; i++) {
             // Generating sample data for each employee
             String name = "Employee " + (i + 1);
             int age = 25 + i; // Sample age
             String department = "Department " + ((i % 3) + 1); // Three departments
             // Creating a new User object and adding it to the list
-            employees.add(new Employee(name, age, department));
+            employees.add(new Employee(i, name, age, department));
         }
     }
 

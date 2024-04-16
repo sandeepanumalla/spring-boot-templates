@@ -7,6 +7,7 @@ import lombok.*;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class Employee {
+    int employeeId;
     private String name;
     private int age;
     private String Department;

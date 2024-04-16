@@ -1,0 +1,25 @@
+spring:
+    application:
+        name: spring-mail-rabbit
+    mail:
+        properties:
+           mail:
+               smtp:
+                   auth: true
+                   starttls:
+                       enable: true
+                       required: true
+        username: sandeepgfgjava@gmail.com
+        password: kxqbotnkgeyxlzbk
+        port: 587
+        protocol: smtp
+        host: smtp.gmail.com
+    rabbitmq:
+        listener:
+            simple:
+                default-requeue-rejected: false
+
+
+server:
+    port: 8085
+

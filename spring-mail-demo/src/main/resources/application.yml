@@ -1,0 +1,20 @@
+spring:
+    application:
+        name: spring-mail-demo
+    mail:
+        host: smtp.gmail.com
+        port: 587
+        username: sandeepgfgjava@gmail.com
+        password: kxqbotnkgeyxlzbk
+        properties:
+            mail:
+                smtp:
+                    starttls:
+                        enable: true
+                        required: true
+                    auth: true
+        test-connection: true
+server:
+    port: 8085
+
+
