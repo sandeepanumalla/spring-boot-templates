@@ -41,4 +41,5 @@ public class RabbitConfig {
         factory.setMessageConverter(serializer);
         return factory;
     }
+
 }
