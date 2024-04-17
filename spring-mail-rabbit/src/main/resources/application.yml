@@ -10,7 +10,6 @@ spring:
                        enable: true
                        required: true
         username: sandeepgfgjava@gmail.com
-        password: kxqbotnkgeyxlzbk
         port: 587
         protocol: smtp
         host: smtp.gmail.com

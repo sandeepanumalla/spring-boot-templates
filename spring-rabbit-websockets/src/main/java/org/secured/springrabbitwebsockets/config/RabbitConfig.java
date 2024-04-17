@@ -1,4 +1,4 @@
-package org.secured.springmailrabbit.config;
+package org.secured.springrabbitwebsockets.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
@@ -13,32 +13,35 @@ public class RabbitConfig {
 
     @Bean
     public Queue queue() {
-        return new Queue("secured.mail.queue", true);
+        return new Queue("spring.rabbit.websockets.queue", true);
     }
 
     @Bean
-    public Exchange defaultExchange() {
-        return new DirectExchange("secured.mail.exchange", true, false);
+    public Exchange exchange() {
+        return new DirectExchange("spring.rabbit.websockets.exchange", true,false);
     }
 
     @Bean
     public Declarables declarables() {
-        return new Declarables(queue(), defaultExchange(),
-                BindingBuilder.bind(queue()).to(defaultExchange()).with("secured.mail.routingKey").noargs()
-                );
+        return new Declarables(queue(),
+                exchange(),
+                BindingBuilder.bind(queue())
+                        .to(exchange())
+                        .with("spring.rabbit.websockets.routingKey")
+                        .noargs());
     }
 
     @Bean
-    public Jackson2JsonMessageConverter serializer() {
-         return new Jackson2JsonMessageConverter();
+    public MessageConverter messageConverter() {
+        return new Jackson2JsonMessageConverter();
     }
 
     @Bean
-    public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(ConnectionFactory connectionFactory, MessageConverter serializer) {
+    public SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory(ConnectionFactory connectionFactory, MessageConverter messageConverter) {
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory);
-        factory.setDefaultRequeueRejected(false);
-        factory.setMessageConverter(serializer);
+        factory.setMessageConverter(messageConverter);
         return factory;
     }
+
 }
