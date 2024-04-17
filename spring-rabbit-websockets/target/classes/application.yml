@@ -1,0 +1,11 @@
+spring:
+    application:
+        name: spring-rabbit-websockets
+    rabbitmq:
+        listener:
+            simple:
+                default-requeue-rejected: false
+
+        port: 5672
+        username: guest
+

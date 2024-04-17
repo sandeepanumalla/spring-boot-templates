@@ -7,7 +7,6 @@ spring:
         protocol: smtp
         host: smtp.gmail.com
         username: sandeepgfgjava@gmail.com
-        password: kxqbotnkgeyxlzbk
         properties:
            mail:
               smtp:
