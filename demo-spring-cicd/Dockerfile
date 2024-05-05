@@ -9,4 +9,4 @@ WORKDIR /usr/app
 
 COPY ./target/demo-spring-cicd-0.0.1-SNAPSHOT.jar ./
 
-CMD ["java", "-jar", "task-management-service-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "demo-spring-cicd-0.0.1-SNAPSHOT.jar"]
