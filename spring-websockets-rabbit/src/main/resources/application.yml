@@ -1,0 +1,10 @@
+spring:
+    application:
+        name: spring-websockets-rabbit
+    rabbitmq:
+        listener:
+            simple:
+                default-requeue-rejected: false
+server:
+    port: 8085
+
