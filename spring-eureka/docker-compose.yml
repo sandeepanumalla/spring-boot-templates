@@ -1,0 +1,48 @@
+version: '3'
+services:
+  discovery-service:
+    image: discovery-service
+    ports:
+      - "8761:8761"
+    networks:
+      - my-network
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-service:8761/eureka/
+
+  inventory-service:
+    image: inventory-service
+    ports:
+      - "8081:8081"
+    networks:
+      - my-network
+
+  order-service:
+    image: order-service
+    ports:
+      - "8082:8082"
+    networks:
+      - my-network
+
+  database-service:
+    container_name: microservice-database
+    image: database-service
+    ports:
+      - "3306:3306"
+    networks:
+      - my-network
+    environment:
+#      - MYSQL_ROOT_PASSWORD=root
+#      - MYSQL_DATABASE=your_password
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=your_password
+    volumes:
+      - mirco-service-database:/var/lib/mysql
+
+
+networks:
+    my-network:
+        driver: bridge
+
+volumes:
+  mirco-service-database:
+    driver: local

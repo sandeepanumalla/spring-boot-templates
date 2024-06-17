@@ -30,8 +30,6 @@
     			<scope>test</scope>
     		</dependency>
     	</dependencies>
-
-
     <modules>
         <module>inventory-core</module>
         <module>inventory-commands</module>
